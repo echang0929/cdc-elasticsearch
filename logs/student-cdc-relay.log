@@ -1,0 +1,191 @@
+2024-04-21T00:54:36.682-07:00  INFO 44473 --- [main] com.tutorial.cdc.CdcApplication          : Starting CdcApplication using Java 21.0.2 with PID 44473 (/Users/yizhang/MyProjs/Proj_spring/embedded-debezium/cdc-elasticsearch/target/classes started by yizhang in /Users/yizhang/MyProjs/Proj_spring/embedded-debezium/cdc-elasticsearch)
+2024-04-21T00:54:36.686-07:00  INFO 44473 --- [main] com.tutorial.cdc.CdcApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-04-21T00:54:36.996-07:00  INFO 44473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2024-04-21T00:54:37.012-07:00  INFO 44473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 Elasticsearch repository interface.
+2024-04-21T00:54:37.014-07:00  INFO 44473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2024-04-21T00:54:37.015-07:00  INFO 44473 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 0 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2024-04-21T00:54:37.160-07:00  INFO 44473 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-04-21T00:54:37.165-07:00  INFO 44473 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-21T00:54:37.165-07:00  INFO 44473 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-04-21T00:54:37.184-07:00  INFO 44473 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-21T00:54:37.184-07:00  INFO 44473 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 480 ms
+2024-04-21T00:54:37.848-07:00  WARN 44473 --- [main] i.d.engine.DebeziumEngine$Builder        : More than one Debezium engine builder implementation was found, using class io.debezium.embedded.ConvertingEngineBuilderFactory (in Debezium 2.6 you can ignore this warning)
+2024-04-21T00:54:37.861-07:00  INFO 44473 --- [main] o.a.k.connect.json.JsonConverterConfig   : JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-04-21T00:54:37.862-07:00  INFO 44473 --- [main] o.a.k.connect.json.JsonConverterConfig   : JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-04-21T00:54:37.869-07:00  INFO 44473 --- [main] i.d.embedded.EmbeddedWorkerConfig        : EmbeddedWorkerConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.json.JsonConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 60000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = student-offset.dat
+	offset.storage.partitions = null
+	offset.storage.replication.factor = null
+	offset.storage.topic = 
+	plugin.discovery = hybrid_warn
+	plugin.path = null
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+
+2024-04-21T00:54:37.894-07:00  INFO 44473 --- [pool-3-thread-1] i.debezium.config.CommonConnectorConfig  : Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-04-21T00:54:37.969-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.postgresql.PostgresConnector       : Successfully tested connection for jdbc:postgresql://localhost:5432/studentdb with user 'user'
+2024-04-21T00:54:37.973-07:00  INFO 44473 --- [pool-4-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T00:54:37.977-07:00  INFO 44473 --- [pool-3-thread-1] o.a.k.connect.json.JsonConverterConfig   : JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	replace.null.with.default = true
+	schemas.cache.size = 1000
+	schemas.enable = false
+
+2024-04-21T00:54:37.977-07:00  INFO 44473 --- [pool-3-thread-1] o.a.k.c.storage.FileOffsetBackingStore   : Starting FileOffsetBackingStore with file student-offset.dat
+2024-04-21T00:54:37.985-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : Starting PostgresConnectorTask with configuration:
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    connector.class = io.debezium.connector.postgresql.PostgresConnector
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.user = user
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.dbname = studentdb
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    offset.storage = org.apache.kafka.connect.storage.FileOffsetBackingStore
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.server.name = localhost-studentdb
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    offset.flush.timeout.ms = 5000
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    errors.retry.delay.max.ms = 10000
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.port = 5432
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    table.whitelist = public.student
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    offset.flush.interval.ms = 60000
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    topic.prefix = test
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    offset.storage.file.filename = student-offset.dat
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    errors.max.retries = -1
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.hostname = localhost
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    database.password = ********
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    name = student-postgres-connector
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    errors.retry.delay.initial.ms = 300
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    value.converter = org.apache.kafka.connect.json.JsonConverter
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      :    key.converter = org.apache.kafka.connect.json.JsonConverter
+2024-04-21T00:54:37.986-07:00  INFO 44473 --- [pool-3-thread-1] i.debezium.config.CommonConnectorConfig  : Loading the custom source info struct maker plugin: io.debezium.connector.postgresql.PostgresSourceInfoStructMaker
+2024-04-21T00:54:37.987-07:00  INFO 44473 --- [pool-3-thread-1] i.debezium.config.CommonConnectorConfig  : Loading the custom topic naming strategy plugin: io.debezium.schema.SchemaTopicNamingStrategy
+2024-04-21T00:54:38.000-07:00  INFO 44473 --- [pool-5-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T00:54:38.041-07:00  INFO 44473 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-04-21T00:54:38.043-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : Found previous partition offset PostgresPartition [sourcePartition={server=test}]: {lsn_proc=27597928, messageType=INSERT, lsn_commit=27597768, lsn=27597768, txId=748, ts_usec=1712422269528137}
+2024-04-21T00:54:38.072-07:00  INFO 44473 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-04-21T00:54:38.079-07:00  INFO 44473 --- [main] com.tutorial.cdc.CdcApplication          : Started CdcApplication in 1.562 seconds (process running for 1.931)
+2024-04-21T00:54:38.080-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.p.connection.PostgresConnection    : Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=null, catalogXmin=null]
+2024-04-21T00:54:38.081-07:00  WARN 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : Last recorded offset is no longer available on the server.
+2024-04-21T00:54:38.083-07:00  WARN 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : The connector is trying to read redo log starting at PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='test'db='studentdb', lsn=LSN{0/1A51BC8}, txId=748, messageType=INSERT, lastCommitLsn=LSN{0/1A51BC8}, timestamp=2024-04-06T16:51:09.528137Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=false, lastCompletelyProcessedLsn=LSN{0/1A51C68}, lastCommitLsn=LSN{0/1A51BC8}, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]], but this is no longer available on the server. Reconfigure the connector to use a snapshot when needed if you want to recover. If not the connector will streaming from the last available position in the log
+2024-04-21T00:54:38.086-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.postgresql.PostgresConnectorTask   : user 'user' connected to database 'studentdb' on PostgreSQL 16.2 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 13.2.1_git20231014) 13.2.1 20231014, 64-bit with roles:
+	role 'pg_read_all_settings' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_database_owner' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_stat_scan_tables' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_checkpoint' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_use_reserved_connections' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_write_all_data' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_monitor' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_read_server_files' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_create_subscription' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_execute_server_program' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'user' [superuser: true, replication: true, inherit: true, create role: true, create db: true, can log in: true]
+	role 'pg_read_all_stats' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+	role 'pg_signal_backend' [superuser: false, replication: false, inherit: true, create role: false, create db: false, can log in: false]
+2024-04-21T00:54:38.087-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.p.connection.PostgresConnection    : Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=null, catalogXmin=null]
+2024-04-21T00:54:38.087-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.postgresql.PostgresConnectorTask   : Found previous offset PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='test'db='studentdb', lsn=LSN{0/1A51BC8}, txId=748, messageType=INSERT, lastCommitLsn=LSN{0/1A51BC8}, timestamp=2024-04-06T16:51:09.528137Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=false, lastCompletelyProcessedLsn=LSN{0/1A51C68}, lastCommitLsn=LSN{0/1A51BC8}, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]]
+2024-04-21T00:54:38.102-07:00  INFO 44473 --- [pool-3-thread-1] i.d.c.p.c.PostgresReplicationConnection  : Creating replication slot with command CREATE_REPLICATION_SLOT "debezium"  LOGICAL decoderbufs
+2024-04-21T00:54:38.115-07:00  INFO 44473 --- [pool-3-thread-1] io.debezium.util.Threads                 : Requested thread factory for connector PostgresConnector, id = test named = SignalProcessor
+2024-04-21T00:54:38.120-07:00  INFO 44473 --- [pool-3-thread-1] io.debezium.util.Threads                 : Requested thread factory for connector PostgresConnector, id = test named = change-event-source-coordinator
+2024-04-21T00:54:38.120-07:00  INFO 44473 --- [pool-3-thread-1] io.debezium.util.Threads                 : Requested thread factory for connector PostgresConnector, id = test named = blocking-snapshot
+2024-04-21T00:54:38.122-07:00  INFO 44473 --- [pool-3-thread-1] io.debezium.util.Threads                 : Creating thread debezium-postgresconnector-test-change-event-source-coordinator
+2024-04-21T00:54:38.124-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Metrics registered
+2024-04-21T00:54:38.124-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Context created
+2024-04-21T00:54:38.127-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] .d.c.p.PostgresSnapshotChangeEventSource : A previous offset indicating a completed snapshot has been found.
+2024-04-21T00:54:38.127-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] .d.c.p.PostgresSnapshotChangeEventSource : According to the connector configuration no snapshot will be executed
+2024-04-21T00:54:38.128-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Snapshot ended with SnapshotResult [status=SKIPPED, offset=PostgresOffsetContext [sourceInfoSchema=Schema{io.debezium.connector.postgresql.Source:STRUCT}, sourceInfo=source_info[server='test'db='studentdb', lsn=LSN{0/1A51BC8}, txId=748, messageType=INSERT, lastCommitLsn=LSN{0/1A51BC8}, timestamp=2024-04-06T16:51:09.528137Z, snapshot=FALSE, schema=, table=], lastSnapshotRecord=false, lastCompletelyProcessedLsn=LSN{0/1A51C68}, lastCommitLsn=LSN{0/1A51BC8}, streamingStoppingLsn=null, transactionContext=TransactionContext [currentTransactionId=null, perTableEventCount={}, totalEventCount=0], incrementalSnapshotContext=IncrementalSnapshotContext [windowOpened=false, chunkEndPosition=null, dataCollectionsToSnapshot=[], lastEventKeySent=null, maximumKey=null]]]
+2024-04-21T00:54:38.129-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Connected metrics set to 'true'
+2024-04-21T00:54:38.166-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.connector.postgresql.PostgresSchema  : REPLICA IDENTITY for 'public.student' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-04-21T00:54:38.171-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.pipeline.signal.SignalProcessor      : SignalProcessor started. Scheduling it every 5000ms
+2024-04-21T00:54:38.171-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] io.debezium.util.Threads                 : Creating thread debezium-postgresconnector-test-SignalProcessor
+2024-04-21T00:54:38.171-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Starting streaming
+2024-04-21T00:54:38.171-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] d.c.p.PostgresStreamingChangeEventSource : Retrieved latest position from stored offset 'LSN{0/1A51C68}'
+2024-04-21T00:54:38.172-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.WalPositionLocator    : Looking for WAL restart position for last commit LSN 'LSN{0/1A51BC8}' and last change LSN 'LSN{0/1A51C68}'
+2024-04-21T00:54:38.198-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.PostgresConnection    : Obtained valid replication slot ReplicationSlot [active=false, latestFlushedLsn=LSN{0/1A55358}, catalogXmin=745]
+2024-04-21T00:54:38.198-07:00  INFO 44473 --- [pool-6-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T00:54:38.214-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] io.debezium.util.Threads                 : Requested thread factory for connector PostgresConnector, id = test named = keep-alive
+2024-04-21T00:54:38.214-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] io.debezium.util.Threads                 : Creating thread debezium-postgresconnector-test-keep-alive
+2024-04-21T00:54:38.234-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.connector.postgresql.PostgresSchema  : REPLICA IDENTITY for 'public.student' is 'DEFAULT'; UPDATE and DELETE events will contain previous values only for PK columns
+2024-04-21T00:54:38.235-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] d.c.p.PostgresStreamingChangeEventSource : Searching for WAL resume position
+2024-04-21T00:54:38.469-07:00  INFO 44473 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-21T00:54:38.469-07:00  INFO 44473 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-04-21T00:54:38.469-07:00  INFO 44473 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-04-21T00:56:17.657-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.WalPositionLocator    : First LSN 'LSN{0/1A55358}' received
+2024-04-21T00:56:17.661-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.WalPositionLocator    : Received COMMIT LSN 'LSN{0/1A55488}' larger than than last stored commit LSN 'LSN{0/1A51BC8}'
+2024-04-21T00:56:17.661-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.WalPositionLocator    : Will restart from LSN 'LSN{0/1A55358}' that is start of the first unprocessed transaction
+2024-04-21T00:56:17.661-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] d.c.p.PostgresStreamingChangeEventSource : WAL resume position 'LSN{0/1A55358}' discovered
+2024-04-21T00:56:17.661-07:00  INFO 44473 --- [pool-7-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T00:56:17.696-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] io.debezium.util.Threads                 : Requested thread factory for connector PostgresConnector, id = test named = keep-alive
+2024-04-21T00:56:17.696-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] io.debezium.util.Threads                 : Creating thread debezium-postgresconnector-test-keep-alive
+2024-04-21T00:56:17.696-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] d.c.p.PostgresStreamingChangeEventSource : Processing messages
+2024-04-21T00:56:17.696-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.c.p.connection.WalPositionLocator    : Message with LSN 'LSN{0/1A55358}' arrived, switching off the filtering
+2024-04-21T00:56:17.856-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : 1 records sent during previous 00:01:39.871, last recorded offset of {server=test} partition is {lsn_proc=27611992, messageType=INSERT, lsn_commit=27597768, lsn=27611992, txId=745, ts_usec=1713686177354231}
+2024-04-21T00:56:18.019-07:00  INFO 44473 --- [pool-3-thread-1] com.tutorial.cdc.listener.CDCListener    : Data Changed: {address=Dallas, TX, name=Jack, id=1, email=jack@gmail.com} with Operation: CREATE
+2024-04-21T00:57:00.403-07:00  INFO 44473 --- [pool-3-thread-1] com.tutorial.cdc.listener.CDCListener    : Data Changed: {address=Dallas, TX, name=Jill, id=1, email=jill@gmail.com} with Operation: UPDATE
+2024-04-21T00:57:10.580-07:00  INFO 44473 --- [pool-3-thread-1] com.tutorial.cdc.listener.CDCListener    : Data Changed: {id=1} with Operation: DELETE
+2024-04-21T02:32:17.972-07:00  INFO 44473 --- [SpringApplicationShutdownHook] io.debezium.embedded.EmbeddedEngine      : Stopping the embedded engine
+2024-04-21T02:32:17.972-07:00  INFO 44473 --- [SpringApplicationShutdownHook] io.debezium.embedded.EmbeddedEngine      : Waiting for PT5M for connector to stop
+2024-04-21T02:32:17.987-07:00  INFO 44473 --- [pool-3-thread-1] io.debezium.embedded.EmbeddedEngine      : Stopping the task and engine
+2024-04-21T02:32:17.987-07:00  INFO 44473 --- [pool-3-thread-1] i.d.connector.common.BaseSourceTask      : Stopping down connector
+2024-04-21T02:32:18.047-07:00  INFO 44473 --- [pool-8-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T02:32:18.047-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Finished streaming
+2024-04-21T02:32:18.047-07:00  INFO 44473 --- [debezium-postgresconnector-test-change-event-source-coordinator] i.d.p.ChangeEventSourceCoordinator       : Connected metrics set to 'false'
+2024-04-21T02:32:18.048-07:00  INFO 44473 --- [pool-3-thread-1] i.d.pipeline.signal.SignalProcessor      : SignalProcessor stopped
+2024-04-21T02:32:18.048-07:00  INFO 44473 --- [pool-3-thread-1] i.d.service.DefaultServiceRegistry       : Debezium ServiceRegistry stopped.
+2024-04-21T02:32:18.048-07:00  INFO 44473 --- [pool-9-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T02:32:18.049-07:00  INFO 44473 --- [pool-10-thread-1] io.debezium.jdbc.JdbcConnection          : Connection gracefully closed
+2024-04-21T02:32:18.051-07:00  INFO 44473 --- [pool-3-thread-1] o.a.k.c.storage.FileOffsetBackingStore   : Stopped FileOffsetBackingStore
