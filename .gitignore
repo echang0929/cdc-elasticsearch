@@ -35,4 +35,5 @@ build/
 ### Others
 .mvn/wrapper
 log/
+logs/
 student-offset.dat

@@ -14,7 +14,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.kafka.connect.data.Field;
 import org.apache.kafka.connect.data.Struct;
 import org.apache.kafka.connect.source.SourceRecord;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Map;
@@ -34,8 +34,8 @@ import static java.util.stream.Collectors.toMap;
  * @author Sohan
  */
 @Slf4j
-@Component
-public class CDCListener {
+@Service
+public class CdcListener {
 
     /**
      * Single thread pool which will run the Debezium engine asynchronously.
@@ -61,7 +61,7 @@ public class CDCListener {
      * @param studentConnector: Student Connector
      * @param studentService:   Student Service
      */
-    private CDCListener(Configuration studentConnector, StudentService studentService) {
+    private CdcListener(Configuration studentConnector, StudentService studentService) {
         this.executor = Executors.newSingleThreadExecutor();
 
         this.engine =
