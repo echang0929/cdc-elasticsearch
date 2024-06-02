@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -64,11 +65,10 @@ public class CdcListener {
     private CdcListener(Configuration studentConnector, StudentService studentService) {
         this.executor = Executors.newSingleThreadExecutor();
 
-        this.engine =
-                DebeziumEngine.create(ChangeEventFormat.of(Connect.class))
-                        .using(studentConnector.asProperties())
-                        .notifying(this::handleChangeEvent)
-                        .build();
+        this.engine = DebeziumEngine.create(ChangeEventFormat.of(Connect.class))
+                .using(studentConnector.asProperties())
+                .notifying(this::handleChangeEvent)
+                .build();
 
         this.studentService = studentService;
     }
@@ -105,29 +105,20 @@ public class CdcListener {
             Operation operation = Operation.forCode((String) sourceRecordValue.get(OPERATION));
 
             //Only if this is a transactional operation.
-            if (operation != Operation.READ) {
-
-                Map<String, Object> message;
-                String record = AFTER; //For Update & Insert operations.
-
-                if (operation == Operation.DELETE) {
-                    record = BEFORE; //For Delete operations.
-                }
-
-                //Build a map with all row data received.
+            if (Set.of("r", "c", "u", "d").contains(operation.code())) {
+                String record = operation == Operation.DELETE ? BEFORE : AFTER;
                 Struct struct = (Struct) sourceRecordValue.get(record);
-                message = struct.schema().fields().stream()
+
+                Map<String, Object> message = struct.schema().fields().stream()
                         .map(Field::name)
                         .filter(fieldName -> struct.get(fieldName) != null)
                         .map(fieldName -> Pair.of(fieldName, struct.get(fieldName)))
                         .collect(toMap(Pair::getKey, Pair::getValue));
 
                 //Call the service to handle the data change.
-                if (operation != null) {
-                    this.studentService.maintainReadModel(message, operation);
-                    log.info("Data Changed: {} with Operation: {}", message, operation.name());
+                this.studentService.maintainReadModel(message, operation);
+                log.info("Data Changed: {} with Operation: {}", message, operation.name());
 
-                }
             }
         }
     }

@@ -3,7 +3,6 @@ package com.tutorial.cdc.elasticsearch.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tutorial.cdc.elasticsearch.entity.Student;
 import com.tutorial.cdc.elasticsearch.repository.StudentRepository;
-//import com.tutorial.cdc.utils.Operation;
 import io.debezium.data.Envelope.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,7 +36,7 @@ public class StudentService {
         final ObjectMapper mapper = new ObjectMapper();
         final Student student = mapper.convertValue(studentData, Student.class);
 
-        if (Operation.DELETE.name().equals(operation.name())) {
+        if (operation == Operation.DELETE) {
             studentRepository.deleteById(student.getId());
         } else {
             studentRepository.save(student);

@@ -15,7 +15,7 @@ public class DebeziumConnectorConfig {
     /**
      * Student Database details.
      */
-    @Value("${student.datasource.host}")
+    @Value("${student.datasource.hostname}")
     private String studentDBHost;
 
     @Value("${student.datasource.databasename}")
