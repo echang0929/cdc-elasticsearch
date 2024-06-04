@@ -18,11 +18,10 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import static io.debezium.data.Envelope.FieldName.*;
+import static io.debezium.data.Envelope.FieldName;
 import static java.util.stream.Collectors.toMap;
 
 
@@ -102,11 +101,13 @@ public class CdcListener {
         Struct sourceRecordValue = (Struct) sourceRecord.value();
 
         if (sourceRecordValue != null) {
-            Operation operation = Operation.forCode((String) sourceRecordValue.get(OPERATION));
+            String oprStr = (String) sourceRecordValue.get(FieldName.OPERATION);
+            Operation operation = Operation.forCode(oprStr);
 
             //Only if this is a transactional operation.
-            if (Set.of("r", "c", "u", "d").contains(operation.code())) {
-                String record = operation == Operation.DELETE ? BEFORE : AFTER;
+            // c:CREATE, r:READ, u:UPDATE, d:DELETE
+            if ("crud".contains(operation.code())) {
+                String record = operation == Operation.DELETE ? FieldName.BEFORE : FieldName.AFTER;
                 Struct struct = (Struct) sourceRecordValue.get(record);
 
                 Map<String, Object> message = struct.schema().fields().stream()
