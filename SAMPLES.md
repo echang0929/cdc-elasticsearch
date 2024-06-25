@@ -208,7 +208,7 @@ UPDATE 1
 DAELETE 1
 ```
 
-````
+```
 ➜ docker exec postgres psql -U user -d studentdb -c \
 "SELECT * from STUDENT;"
 
